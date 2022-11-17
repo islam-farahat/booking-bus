@@ -1,0 +1,15 @@
+-- DropForeignKey
+ALTER TABLE "City" DROP CONSTRAINT "City_fromId_fkey";
+
+-- DropForeignKey
+ALTER TABLE "City" DROP CONSTRAINT "City_toId_fkey";
+
+-- AlterTable
+ALTER TABLE "City" ALTER COLUMN "fromId" DROP NOT NULL,
+ALTER COLUMN "toId" DROP NOT NULL;
+
+-- AddForeignKey
+ALTER TABLE "City" ADD CONSTRAINT "City_fromId_fkey" FOREIGN KEY ("fromId") REFERENCES "Trips"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "City" ADD CONSTRAINT "City_toId_fkey" FOREIGN KEY ("toId") REFERENCES "Trips"("id") ON DELETE SET NULL ON UPDATE CASCADE;
