@@ -9,7 +9,7 @@ async function bootstrap() {
   if (port == null || port == '') {
     port = '8080';//port number
   }
-
+  app.enableCors();
   await app.listen(Number(port));
 }
 bootstrap();
