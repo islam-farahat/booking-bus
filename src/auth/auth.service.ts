@@ -20,11 +20,11 @@ export class AuthService {
       },
     });
     if (!user) {
-      throw new ForbiddenException('Credential Taken');
+      throw new ForbiddenException('email incorrect');
     }
     const password = await argon.verify(user.password, dto.password);
     if (!password) {
-      throw new ForbiddenException('Credential Taken');
+      throw new ForbiddenException('password incorrect');
     }
 
     return this.signToken(user.id, user.email);
