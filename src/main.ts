@@ -10,6 +10,6 @@ async function bootstrap() {
     port = '3000'; //port number
   }
   app.enableCors();
-  await app.listen(Number(port));
+  await app.listen(Number(port), '0.0.0.0');
 }
 bootstrap();
