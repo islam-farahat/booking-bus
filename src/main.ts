@@ -7,7 +7,7 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
   let port = process.env.PORT;
   if (port == null || port == '') {
-    port = '3000'; //port number
+    port = '4200'; //port number
   }
   app.enableCors();
   await app.listen(Number(port), '0.0.0.0');
