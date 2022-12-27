@@ -32,9 +32,4 @@ export class BillDocumentController {
       params.endDate,
     );
   }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.billDocumentService.findOne(+id);
-  }
 }

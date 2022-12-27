@@ -31,8 +31,4 @@ export class BillDocumentService {
       },
     });
   }
-
-  async findOne(id: number) {
-    return await this.prisma.billdocument.findFirst({ where: { id: id } });
-  }
 }
