@@ -8,7 +8,7 @@ import {
   Delete,
   Query,
 } from '@nestjs/common';
-import { query } from 'express';
+
 import { BillDocumentService } from './bill-document.service';
 
 @Controller('bill-document')
