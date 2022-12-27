@@ -9,6 +9,7 @@ import { TripModule } from './trip/trip.module';
 import { TicketModule } from './ticket/ticket.module';
 import { TicketDetailsModule } from './ticket-details/ticket-details.module';
 import { InvoiceModule } from './invoice/invoice.module';
+import { BillDocumentModule } from './bill-document/bill-document.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { InvoiceModule } from './invoice/invoice.module';
     TicketModule,
     TicketDetailsModule,
     InvoiceModule,
+    BillDocumentModule,
   ],
   controllers: [],
   providers: [],

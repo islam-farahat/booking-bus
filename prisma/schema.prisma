@@ -78,3 +78,13 @@ model Invoice {
 
   @@map("Invoices")
 }
+
+model Billdocument {
+  id       Int      @id @default(autoincrement())
+  fullName String
+  price    Decimal
+  buscount Int
+  from     String
+  to       String
+  date     DateTime @db.Date
+}
