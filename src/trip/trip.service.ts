@@ -10,7 +10,7 @@ export class TripService {
     try {
       return await this.prisma.trip.create({
         data: {
-          date: dto.date,
+          date: new Date(dto.date),
           price: dto.price,
           time: dto.time,
           seatsCount: dto.seatsCount,
@@ -42,7 +42,7 @@ export class TripService {
     try {
       return await this.prisma.trip.update({
         data: {
-          date: dto.date,
+          date: new Date(dto.date),
           price: dto.price,
           time: dto.time,
           seatsCount: dto.seatsCount,
@@ -56,5 +56,23 @@ export class TripService {
     } catch (error) {
       return error;
     }
+  }
+
+  async findByDate(startDate: Date, endDate: Date) {
+    return await this.prisma.trip.findMany({
+      where: {
+        AND: [
+          { date: { gte: new Date(startDate) } },
+          { date: { lte: new Date(endDate) } },
+        ],
+      },
+    });
+  }
+  async findByTodyDate(date: Date) {
+    return await this.prisma.trip.findMany({
+      where: {
+        date: { gte: new Date(date) },
+      },
+    });
   }
 }

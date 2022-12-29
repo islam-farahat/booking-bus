@@ -5,7 +5,7 @@ export class TripDto {
   @IsNotEmpty()
   to: string;
   @IsNotEmpty()
-  date: string;
+  date: Date;
   @IsNotEmpty()
   time: string;
   @IsNotEmpty()

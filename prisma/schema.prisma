@@ -38,7 +38,7 @@ model Trip {
   id         Int       @id @default(autoincrement())
   from       String
   to         String
-  date       String
+  date       DateTime  @db.Date
   time       String
   price      String
   busNumber  String

@@ -1,6 +1,6 @@
 import { TripDto } from './trip-dto';
 import { TripService } from './trip.service';
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put, Query } from '@nestjs/common';
 
 @Controller('trip')
 export class TripController {
@@ -12,6 +12,14 @@ export class TripController {
   @Get()
   getTrips() {
     return this.tripService.getTrips();
+  }
+  @Get('/filter')
+  findByDate(@Query() params) {
+    return this.tripService.findByDate(params.startDate, params.endDate);
+  }
+  @Get('/tody-filter')
+  findByTodyDate(@Query() params) {
+    return this.tripService.findByTodyDate(params.date);
   }
   @Get(':id')
   getTrip(@Param() params) {
