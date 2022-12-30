@@ -21,4 +21,11 @@ export class InvoiceService {
       return error;
     }
   }
+  getInvoiceById(id: number) {
+    try {
+      return this.prisma.invoice.findFirst({ where: { id: Number(id) } });
+    } catch (error) {
+      return error;
+    }
+  }
 }
