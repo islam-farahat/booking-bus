@@ -8,6 +8,8 @@ export class TicketDetailsDto {
   @IsNotEmpty()
   branchName: string;
   @IsNotEmpty()
-  terms: string;
+  terms: string[];
+  @IsNotEmpty()
+  vatSerial: string;
   id?: number;
 }

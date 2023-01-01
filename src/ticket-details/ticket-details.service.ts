@@ -13,6 +13,7 @@ export class TicketDetailsService {
           mobile: dto.mobile,
           branchName: dto.branchName,
           terms: dto.terms,
+          vatSerial: dto.vatSerial,
         },
       });
     } catch (error) {
@@ -33,7 +34,12 @@ export class TicketDetailsService {
     try {
       return await this.prisma.ticketDetail.update({
         where: { branchName: name },
-        data: { license: dto.license, mobile: dto.mobile, terms: dto.terms },
+        data: {
+          license: dto.license,
+          mobile: dto.mobile,
+          terms: dto.terms,
+          vatSerial: dto.vatSerial,
+        },
       });
     } catch (error) {
       return error;

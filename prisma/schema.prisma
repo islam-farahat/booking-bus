@@ -62,11 +62,12 @@ model Ticket {
 }
 
 model TicketDetail {
-  id         Int    @id @default(autoincrement())
+  id         Int      @id @default(autoincrement())
   license    String
   mobile     String
-  terms      String
-  branchName String @unique
+  terms      String[]
+  branchName String   @unique
+  vatSerial  String
 
   @@map("TicketDetails")
 }
