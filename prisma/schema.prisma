@@ -73,9 +73,11 @@ model TicketDetail {
 }
 
 model Invoice {
-  id       Int   @id @default(autoincrement())
+  id       Int      @id @default(autoincrement())
   ticketId Int[]
   tripId   Int
+  date     DateTime @db.Date
+  complete Boolean  @default(true)
 
   @@map("Invoices")
 }

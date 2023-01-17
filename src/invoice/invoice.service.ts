@@ -8,7 +8,12 @@ export class InvoiceService {
   addInvoice(dto: InvoiceDto) {
     try {
       return this.prisma.invoice.create({
-        data: { ticketId: dto.ticketId, tripId: dto.tripId },
+        data: {
+          ticketId: dto.ticketId,
+          tripId: dto.tripId,
+          complete: dto.complete,
+          date: new Date(dto.date),
+        },
       });
     } catch (error) {
       return error;
@@ -24,6 +29,21 @@ export class InvoiceService {
   getInvoiceById(id: number) {
     try {
       return this.prisma.invoice.findFirst({ where: { id: Number(id) } });
+    } catch (error) {
+      return error;
+    }
+  }
+  updateInvoice(dto: InvoiceDto, id: number) {
+    try {
+      return this.prisma.invoice.update({
+        data: {
+          ticketId: dto.ticketId,
+          tripId: dto.tripId,
+          complete: dto.complete,
+          date: new Date(dto.date),
+        },
+        where: { id: Number(id) },
+      });
     } catch (error) {
       return error;
     }

@@ -1,4 +1,4 @@
-import { IsNotEmpty } from 'class-validator';
+import { IsBoolean, IsNotEmpty } from 'class-validator';
 
 export class InvoiceDto {
   id!: number;
@@ -6,4 +6,8 @@ export class InvoiceDto {
   ticketId!: number[];
   @IsNotEmpty()
   tripId!: number;
+  @IsNotEmpty()
+  date: Date;
+  @IsNotEmpty()
+  complete: boolean;
 }
