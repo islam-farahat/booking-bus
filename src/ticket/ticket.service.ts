@@ -16,6 +16,7 @@ export class TicketService {
           idNumber: Number(dto.idNumber),
           mobile: dto.mobile,
           nationality: dto.nationality,
+          complete: dto.complete,
         },
       });
     } catch (error) {
@@ -39,7 +40,25 @@ export class TicketService {
   async getTicketsByBusId(busId: number) {
     try {
       return await this.prisma.ticket.findMany({
-        where: { busNumber: Number(busId) },
+        where: { AND: [{ busNumber: Number(busId) }, { complete: true }] },
+      });
+    } catch (error) {
+      return error;
+    }
+  }
+  async updateTicket(id: number, dto: TicketDto) {
+    try {
+      return await this.prisma.ticket.update({
+        where: { id: Number(id) },
+        data: {
+          busNumber: Number(dto.busNumber),
+          chairNumber: Number(dto.chairNumber),
+          fullName: dto.fullName,
+          idNumber: Number(dto.idNumber),
+          mobile: dto.mobile,
+          nationality: dto.nationality,
+          complete: dto.complete,
+        },
       });
     } catch (error) {
       return error;

@@ -14,4 +14,6 @@ export class TicketDto {
   busNumber: number;
   @IsNotEmpty()
   chairNumber: number;
+  @IsNotEmpty()
+  complete: boolean;
 }

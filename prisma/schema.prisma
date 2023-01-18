@@ -49,14 +49,14 @@ model Trip {
 }
 
 model Ticket {
-  id          Int    @id @default(autoincrement())
+  id          Int     @id @default(autoincrement())
   fullName    String
   mobile      String
   nationality String
   idNumber    Int
-
   busNumber   Int
   chairNumber Int
+  complete    Boolean @default(true)
 
   @@map("Tickets")
 }
