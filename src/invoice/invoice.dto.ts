@@ -10,4 +10,10 @@ export class InvoiceDto {
   date: Date;
   @IsNotEmpty()
   complete: boolean;
+  @IsNotEmpty()
+  roomType: string;
+  @IsNotEmpty()
+  roomCount: number;
+  @IsNotEmpty()
+  roomCost: number;
 }

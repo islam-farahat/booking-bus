@@ -13,6 +13,9 @@ export class InvoiceService {
           tripId: dto.tripId,
           complete: dto.complete,
           date: new Date(dto.date),
+          roomCost: Number(dto.roomCost),
+          roomCount: Number(dto.roomCount),
+          roomType: dto.roomType,
         },
       });
     } catch (error) {
@@ -41,6 +44,9 @@ export class InvoiceService {
           tripId: dto.tripId,
           complete: dto.complete,
           date: new Date(dto.date),
+          roomCost: dto.roomCost,
+          roomCount: dto.roomCount,
+          roomType: dto.roomType,
         },
         where: { id: Number(id) },
       });
